@@ -9,12 +9,13 @@ function App() {
   //   age: 0,
   //   hairColor: ""
   // })
-  const [boxes, setBoxes] = useState([{color:"red", height: 100, width:100, display: "inline-block"}]);
+  const [boxes, setBoxes] = useState([]);
+  const [boxesExist, setBoxesExist] = useState(false);
   
   return (
     <div className="App">
-      <DisplayBoxes boxes={boxes}/>
-      <NewBox setBoxes={setBoxes} boxes={boxes}/>
+      <DisplayBoxes boxes={boxes} boxesExist={boxesExist}/>
+      <NewBox setBoxes={setBoxes} boxes={boxes} setBoxesExist = {setBoxesExist}/>
     </div>
   );
 }
