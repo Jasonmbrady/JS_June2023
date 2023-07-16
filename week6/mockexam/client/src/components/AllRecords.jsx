@@ -1,8 +1,12 @@
 import React from 'react';
 import {Link} from "react-router-dom";
+import "../App.css";
 
-const AllRecords = ({allRecords}) => {
-
+const AllRecords = ({allRecords, deleteRecord}) => {
+    const deleteHandler = e => {
+        const recordId = e.target.id;
+        deleteRecord(recordId);
+    }
     return(
         <div>
             <Link to={'/albums/new'}>Add a New Record</Link>
@@ -23,7 +27,7 @@ const AllRecords = ({allRecords}) => {
                                 <td><Link to={`${record._id}`}>{record.title}</Link></td>
                                 <td>{record.artist}</td>
                                 <td>{record.isOwned ? "Yes": "No"}</td>
-                                <td>Edit | Delete</td>
+                                <td><Link to={`/albums/edit/${record._id}`}>Edit</Link> | <span className="fake-link" onClick={deleteHandler} id={record._id}>Delete</span></td>
                             </tr>
                         )
                     })}

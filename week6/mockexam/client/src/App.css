@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+.fakelink {
+  color:blue;
+  text-decoration: underline;
+  cursor: pointer;
+}
